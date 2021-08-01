@@ -12,4 +12,6 @@ server.use(staticRouter);
 
 server.get("/live-reload", liveReloadHandler);
 
+server.get("/*", (request, response) => response.sendFile("index.html", { root: "." }));
+
 server.listen(7777);

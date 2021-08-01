@@ -3,6 +3,7 @@
 import withStyle from "easy-with-style";  ///
 
 import { Element } from "easy";
+import { controller } from "sufficient";
 
 import Accordion from "./accordion";
 import ArticlesArray from "./articlesArray";
@@ -16,14 +17,16 @@ class View extends Element {
   }
 
   childElements() {
-    const showArticle = this.showArticle.bind(this);
-
     return ([
 
       <Accordion ArticlesArray={ArticlesArray} showArticle={showArticle} />,
       <AccordionNavigation ArticlesArray={ArticlesArray} showArticle={showArticle} />
 
     ]);
+
+    function showArticle(uri, instantly) {
+      controller.showArticle(uri, instantly);
+    }
   }
 
   initialise() {
