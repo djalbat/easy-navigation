@@ -4,8 +4,6 @@ import withStyle from "easy-with-style";  ///
 
 import { Button } from "easy";
 
-import { normalSize } from "../../../../../Xomi/common-client/src/sizes";
-
 class AccordionNavigationButton extends Button {
   clickHandler(event, element) {
     const { showArticle, Article } = this.properties,
@@ -62,7 +60,6 @@ export default withStyle(AccordionNavigationButton)`
   cursor: pointer;
   border: 1px solid black;
   display: flex;
-  font-size: ${normalSize};
   border-top: none;
   align-items: center;
   padding-left: 2rem;

@@ -2,22 +2,40 @@
 
 import withStyle from "easy-with-style";  ///
 
+import { Element } from "easy";
+
 import Accordion from "./accordion";
 import ArticlesArray from "./articlesArray";
 import AccordionNavigation from "./navigation/accordion";
 
-const View = (properties) => {
-  const { className } = properties;
+class View extends Element {
+  showArticle(uri, instantly, callback) {
+    this.updateAccordion(uri, instantly, callback);
 
-  return (
+    this.updateAccordionNavigation(uri);
+  }
 
-      <div className={`${className} view`}>
-        <Accordion ArticlesArray={ArticlesArray} />
-        <AccordionNavigation ArticlesArray={ArticlesArray} />
-      </div>
+  childElements() {
+    const showArticle = this.showArticle.bind(this);
 
-  );
-};
+    return ([
+
+      <Accordion ArticlesArray={ArticlesArray} showArticle={showArticle} />,
+      <AccordionNavigation ArticlesArray={ArticlesArray} showArticle={showArticle} />
+
+    ]);
+  }
+
+  initialise() {
+    this.assignContext();
+  }
+
+  static tagName = "div";
+
+  static defaultProperties = {
+    className: "view"
+  };
+}
 
 export default withStyle(View)`
 
