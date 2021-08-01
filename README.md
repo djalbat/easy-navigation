@@ -1,6 +1,6 @@
 # Easy Accordion
 
-An accordion and associated navigation.
+A responsive accordion and associated navigation.
 
 Coming soon!
 
