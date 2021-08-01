@@ -1,10 +1,12 @@
 "use strict";
 
+import withStyle from "easy-with-style";
+
 import { Element } from "easy";
 
 import AccordionNavigationButton from "../../button/navigation/accordion";
 
-export default class AccordionNavigationItem extends Element {
+class AccordionNavigationItem extends Element {
   getAccordionNavigationButton() {
     const { AccordionNavigationButton } = this.constructor;
 
@@ -31,3 +33,9 @@ export default class AccordionNavigationItem extends Element {
     className: "accordion navigation"
   };
 }
+
+export default withStyle(AccordionNavigationItem)`
+
+  height: 4rem;
+  
+`;
