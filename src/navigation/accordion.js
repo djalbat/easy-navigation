@@ -4,8 +4,6 @@ import { Element } from "easy";
 
 import AccordionNavigationList from "../list/navigation/accordion";
 
-import { desktop } from "../breakpoints";
-
 export default class AccordionNavigation extends Element {
   getAccordionNavigationList() {
     const { AccordionNavigationList } = this.constructor;

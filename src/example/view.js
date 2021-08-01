@@ -6,14 +6,18 @@ import Accordion from "./accordion";
 import ArticlesArray from "./articlesArray";
 import AccordionNavigation from "./navigation/accordion";
 
-const View = (properties) =>
+const View = (properties) => {
+  const { className } = properties;
 
-  <div className="view">
-    <Accordion ArticlesArray={ArticlesArray} />
-    <AccordionNavigation ArticlesArray={ArticlesArray} />
-  </div>
+  return (
 
-;
+      <div className={`${className} view`}>
+        <Accordion ArticlesArray={ArticlesArray} />
+        <AccordionNavigation ArticlesArray={ArticlesArray} />
+      </div>
+
+  );
+};
 
 export default withStyle(View)`
 
