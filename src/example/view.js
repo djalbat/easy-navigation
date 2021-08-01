@@ -39,9 +39,11 @@ class View extends Element {
 
 export default withStyle(View)`
 
+  padding: 4rem;
+
   display: block;
   
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
 
     display: grid;
     

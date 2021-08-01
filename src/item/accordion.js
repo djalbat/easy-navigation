@@ -117,7 +117,7 @@ export default class AccordionItem extends Element {
   }
 
   childElements() {
-    const { Articles, last, showArticle } = this.properties,
+    const { Articles, first, last, showArticle } = this.properties,
           [ Article ] = Articles,
           AccordionDiv = this.getAccordionDiv(),
           AccordionButton = this.getAccordionButton(),
@@ -129,7 +129,7 @@ export default class AccordionItem extends Element {
 
     return ([
 
-      <AccordionButton Article={Article} last={last} showArticle={showArticle} />,
+      <AccordionButton Article={Article} first={first} last={last} showArticle={showArticle} />,
       <AccordionDiv>
         {articles}
       </AccordionDiv>

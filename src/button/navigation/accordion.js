@@ -56,7 +56,7 @@ class AccordionNavigationButton extends Button {
 export default withStyle(AccordionNavigationButton)`
 
   width: 100%;
-  height: 100%;
+  height: 4rem;
   cursor: pointer;
   border: 1px solid black;
   border-top: none;

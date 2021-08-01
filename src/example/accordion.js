@@ -11,5 +11,13 @@ export default withStyle(class extends Accordion {
 })`
 
   grid-area: accordion;
+
+  border: 1px solid black;
   
+  @media (min-width: 800px) {
+  
+    border: none;
+  
+  }
+
 `;

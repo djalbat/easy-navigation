@@ -1,6 +1,6 @@
 "use strict";
 
-import { AccordionArticle } from "../../../index";  ///
+import AccordionArticle from "../../article/accordion";
 
 import { headingsURI } from "../../uris";
 import { headingsPath } from "../../paths";

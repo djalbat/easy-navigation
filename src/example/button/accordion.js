@@ -6,7 +6,7 @@ import { AccordionButton } from "../../index";  ///
 
 export default withStyle(AccordionButton)`
 
-  @media (min-width: 600px) {
+  @media (min-width: 800px) {
 
     display: none;
 

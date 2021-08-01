@@ -13,7 +13,11 @@ class AccordionButton extends Button {
   }
 
   didMount() {
-    const { last } = this.properties;
+    const { first, last } = this.properties;
+
+    if (first) {
+      this.addClass("first");
+    }
 
     if (last) {
       this.addClass("last");
@@ -58,11 +62,12 @@ class AccordionButton extends Button {
 export default withStyle(AccordionButton)`
 
   width: 100%;
+  height: 4rem;
   cursor: pointer;
-  border-bottom: 1px solid black; 
+  border-top: 1px solid black; 
 
-  .last {
-    border-bottom: none;
+  .first {
+    border-top: none;
   }
 
   :disabled {
