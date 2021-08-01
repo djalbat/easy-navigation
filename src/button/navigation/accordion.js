@@ -59,13 +59,7 @@ export default withStyle(AccordionNavigationButton)`
   height: 100%;
   cursor: pointer;
   border: 1px solid black;
-  display: flex;
   border-top: none;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  flex-direction: row;
-  justify-content: flex-start;
 
   .first {
     border-top: 1px solid black;
@@ -74,8 +68,8 @@ export default withStyle(AccordionNavigationButton)`
   :disabled {
     cursor: auto;
     border: none;
+    background: none;
     font-weight: bold;
-    background-color: transparent;
   }
 
   :disabled:not(.last) {

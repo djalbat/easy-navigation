@@ -58,16 +58,8 @@ class AccordionButton extends Button {
 export default withStyle(AccordionButton)`
 
   width: 100%;
-  height: 5rem;
   cursor: pointer;
-  align-items: center;
-  padding-left: 2rem;
-  padding-right: 2rem;
   border-bottom: 1px solid black; 
-  flex-direction: row;
-  justify-content: center;
-
-  display: flex;
 
   .last {
     border-bottom: none;
@@ -79,5 +71,5 @@ export default withStyle(AccordionButton)`
     font-weight: bold;
     border-bottom: none;
   }
-    
+
 `;

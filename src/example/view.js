@@ -41,7 +41,7 @@ export default withStyle(View)`
 
   display: block;
   
-  @media (min-width: 1000px) {
+  @media (min-width: 600px) {
 
     display: grid;
     

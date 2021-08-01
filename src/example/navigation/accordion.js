@@ -10,7 +10,7 @@ export default withStyle(AccordionNavigation)`
   
   display: none;
   
-  @media (min-width: 1000px) {
+  @media (min-width: 600px) {
   
     display: block;
   
