@@ -2,9 +2,9 @@
 
 import withStyle from "easy-with-style";  ///
 
-import { Accordion, AccordionNavigation } from "../index";  ///
-
+import Accordion from "./accordion";
 import ArticlesArray from "./articlesArray";
+import AccordionNavigation from "./navigation/accordion";
 
 const View = (properties) =>
 

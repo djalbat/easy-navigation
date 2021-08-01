@@ -4,8 +4,6 @@ import withStyle from "easy-with-style";  ///
 
 import { Button } from "easy";
 
-import { desktop } from "../breakpoints";
-
 class AccordionButton extends Button {
   clickHandler(event, element) {
     const { showArticle, Article } = this.properties,
@@ -71,12 +69,6 @@ export default withStyle(AccordionButton)`
 
   display: flex;
 
-  @media (min-width: ${desktop}) {
-  
-    display: none;
-  
-  }
-  
   .last {
     border-bottom: none;
   }

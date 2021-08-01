@@ -1,14 +1,12 @@
 "use strict";
 
-import withStyle from "easy-with-style";  ///
-
 import { Element } from "easy";
 
 import AccordionNavigationList from "../list/navigation/accordion";
 
 import { desktop } from "../breakpoints";
 
-class AccordionNavigation extends Element {
+export default class AccordionNavigation extends Element {
   getAccordionNavigationList() {
     const { AccordionNavigationList } = this.constructor;
 
@@ -34,15 +32,3 @@ class AccordionNavigation extends Element {
     className: "accordion"
   };
 }
-
-export default withStyle(AccordionNavigation)`
-
-  display: none;
-  
-  @media (min-width: ${desktop}) {
-  
-    display: block;
-  
-  }
-  
-`;
