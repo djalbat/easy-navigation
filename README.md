@@ -86,7 +86,7 @@ class View extends Element {
 }
 ```
 
-Note that local instances of both the accordion and associated navigation have been used in order that custom styles can be applied. This is explained in greater detail in the section on styles that comes next. You must pass a `showArticles()` method to both as well as an array of arrays of articles:
+You must pass a `showArticles()` method to both the accordion and associated navigation as well as an array of arrays of articles. Note that local instances of both have been used in order that custom styles can be applied. This is explained in greater detail in the section on styles that comes next. An example array of arrays of articles is shown below:
 
 ```
 const ArticlesArray = [ ///
@@ -99,7 +99,7 @@ const ArticlesArray = [ ///
 export default ArticlesArray;
 ```
 
-In fact not all the elements of the outermost array need to be arrays, single articles are coerced into arrays automatically. For genuine arrays the first element is taken as the main article in that it's title is shown in the accordion and navigation buttons. There is no second level navigation to enable the other articles to be shown. However, if they are shown by means of links or whatever, both the accordion and navigation will respond by enabling the button of corresponding to the first article in the array, thus allowing the user to navigate back to it. 
+In fact not all the elements of the outermost array need to be arrays, single articles are coerced into arrays automatically. For genuine arrays the first element is taken as the main article in that it's title is shown in the accordion and associated navigation buttons. There is no second level navigation to enable the other articles to be shown. However, if they are shown by means of links or whatever, both the accordion and associated navigation will respond by enabling the button corresponding to the first article in the array, thus allowing the user to navigate back to it. 
 
 ## Building
 
