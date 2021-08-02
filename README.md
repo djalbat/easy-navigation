@@ -2,7 +2,7 @@
 
 A responsive accordion and associated navigation.
 
-There is an accordion element, which can take an array of arrays of articles, together with a navigation element. The two can be used in tandem or independently. They are responsive in the sense that they can be easily styled to work together responsively. They can also be made to respond to changes in the browser's address. More details are given in the usage section.   
+There is an accordion element, which can take an array of arrays of articles, together with a navigation element. The two can be used in tandem or independently. They are responsive in the sense that they can be easily styled to work together with only one of them showing at any one time. They can also be made to respond to changes in the browser's address bar.   
 
 ### JSX support
 
@@ -86,7 +86,20 @@ class View extends Element {
 }
 ```
 
-Note that local instances of both are used so that custom styles can be applied. This is explained in greater detail in the section on styles that comes next.
+Note that local instances of both the accordion and associated navigation have been used in order that custom styles can be applied. This is explained in greater detail in the section on styles that comes next. You must pass a `showArticles()` method to both as well as an array of arrays of articles:
+
+```
+const ArticlesArray = [ ///
+  [ HomeAccordionArticle, LinksAccordionArticle, ButtonsAccordionArticle, HeadingsAccordionArticle ],
+  CodesAccordionArticle,
+  InputsAccordionArticle,
+  SectionsAccordionArticle
+];
+
+export default ArticlesArray;
+```
+
+In fact not all the elements of the outermost array need to be arrays, single articles are coerced into arrays automatically. For genuine arrays the first element is taken as the main article in that it's title is shown in the accordion and navigation buttons. There is no second level navigation to enable the other articles to be shown. However, if they are shown by means of links or whatever, both the accordion and navigation will respond by enabling the button of corresponding to the first article in the array, thus allowing the user to navigate back to it. 
 
 ## Building
 
