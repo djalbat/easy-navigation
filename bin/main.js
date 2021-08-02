@@ -14,4 +14,4 @@ server.get("/live-reload", liveReloadHandler);
 
 server.get("/*", (request, response) => response.sendFile("index.html", { root: "." }));
 
-server.listen(7777);
+server.listen(8888);

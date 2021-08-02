@@ -10,9 +10,9 @@ export default class CodesAccordionArticle extends AccordionArticle {
     return (
 
       <div>
-        <h2>
+        <h1>
           Codes
-        </h2>
+        </h1>
       </div>
 
     );

@@ -11,7 +11,7 @@ export default class HeadingsAccordionArticle extends AccordionArticle {
 
       <div>
         <h1>
-            Headings
+          Headings
         </h1>
       </div>
 
