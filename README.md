@@ -88,7 +88,7 @@ class View extends Element {
 
 You must pass a `showArticles()` method to both the accordion and associated navigation as well as an array of arrays of articles. Note that local instances of both have been used in order that custom styles can be applied. This is explained in greater detail in the section on styles that comes next.
 
-Calling the `assignContext()` method in the `initialise()` method makes the `updateAccordion()` and `updateAccordionNavigation()` methods available to the view and it is these methods that are called from the `showArticle()` method. Note that the `updateAccordion()` method takes optional `instantly` and `callback` arguments. If set to `true` the former forces the acoordion to show the article in question instantly, that is, with no animations. The `callback` argument allows a callback function to be provided that is invoked when the animation completes. If the `instantly` argument has been set to true, this callback is called immediately.  
+Calling the `assignContext()` method in the view's `initialise()` method makes the `updateAccordion()` and `updateAccordionNavigation()` methods available to the view and it is these methods that are called from its `showArticle()` method. Note that the `updateAccordion()` method takes optional `instantly` and `callback` arguments. If set to `true` the `instantly` argument will force the acoordion to show articles instantly, that is, with no animations. The `callback` argument allows a callback function to be provided that is invoked when the animation completes. If the `instantly` argument has been set to true, this callback is called immediately.  
 
 An example array of arrays of articles is shown below:
 
@@ -137,8 +137,126 @@ export default class ButtonsAccordionArticle extends AccordionArticle {
   };
 }
 ```
-
 Paths are used to match URIs and should be regular expressions. This means that URIs that include, say, dynamic identifiers, can be matched.
+
+## Styles
+
+The way to make the accordion and associated navgiation work in tandem is to hide the accordions buttons with the screen widens and hide the navigation entirely when the screen narrows. By only hiding the accordions bottons, its child articles remain visible and this gives the desired effect.
+
+Here is some example styling for the view:
+
+```
+export default withStyle(View)`
+
+  padding: 4rem;
+
+  display: block;
+  
+  @media (min-width: 800px) {
+
+    display: grid;
+    
+    column-gap: 2rem;
+    grid-template-rows: 1fr;
+    grid-template-areas: "accordion-navigation accordion";
+    grid-template-columns: 20rem auto;
+
+  }
+
+`;
+```
+
+Note the use of the grid template areas. These are not present on the accordion and associated navigation elements by default and must be added with custom styles. Here is an example of styling the associated navigation:
+
+```
+import { AccordionNavigation } from "easy-accordion";
+
+export default withStyle(AccordionNavigation)`
+
+  grid-area: accordion-navigation;
+  
+  display: none;
+  
+  @media (min-width: 800px) {
+  
+    display: block;
+  
+  }
+
+`;
+```
+Note that as well as the `grid-arae` property the navigation's visibility is toggled as the screen width changes.
+
+Before looking at the accordion, note that you may also way to override the default `AccordionArticle` class in order to set the appropriate widespace around the articles:
+
+```
+import { AccordionArticle } from "easy-accordion";
+
+export default withStyle(AccordionArticle)`
+
+  margin: 2rem;
+
+  @media (min-width: 800px) {
+  
+    margin: 0;
+  
+  }
+
+`;
+```
+
+Finally, the accordion's buttons can be made to be responsive with another media query:
+
+```
+import { AccordionButton } from "easy=accordion";
+
+export default withStyle(AccordionButton)`
+
+  @media (min-width: 800px) {
+
+    display: none;
+
+  }
+
+`;
+```
+The accordion must be appraised of this new button and this is done in two stages. First, the `AccordionItem` class must be overridden in the following manner...
+
+```
+import { AccordionItem } from "easy-accordion";
+
+import AccordionButton from "../button/accordion";
+
+export default class extends AccordionItem {
+  static AccordionButton = AccordionButton;
+}
+```
+...and then the accordion must be appraised of this new item:
+
+```
+import { Accordion } from "easy-accordion";
+
+import AccordionItem from "./item/accordion";
+
+export default withStyle(class extends Accordion {
+  static AccordionItem = AccordionItem;
+})`
+
+  grid-area: accordion;
+
+  border: 1px solid black;
+  
+  @media (min-width: 800px) {
+  
+    border: none;
+  
+  }
+
+`;
+```
+Note that in this instance it has also been given a border.
+
+It has already been mentioned but it is worth repeating that only the accordion's button need to be hidden as the screen widens whilst its child articles remain in use, so to speak. In this way responsiveness is acheived without the need to duplicate content.
 
 ## Building
 
