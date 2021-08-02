@@ -105,7 +105,7 @@ export default ArticlesArray;
 
 In fact not all the elements of the outermost array need to be arrays, single articles are coerced into arrays automatically. For genuine arrays the first element is taken as the main article in that it's title is shown in the accordion and associated navigation buttons. There is no second level navigation to enable the other articles to be shown. However, if they are shown by means of links or whatever, both the accordion and associated navigation will respond by enabling the button corresponding to the first article in the array, thus allowing the user to navigate back to it. 
 
-the articles provided must extend the `AccordionArticle` class and provide `title`, `uri` and` path` static properties. For example:
+The articles provided must extend the `AccordionArticle` class and provide `title`, `uri` and` path` static properties. For example:
 
 ```
 import AccordionArticle from "../../article/accordion";
@@ -141,7 +141,7 @@ Paths are used to match URIs and should be regular expressions. This means that 
 
 ## Styles
 
-The way to make the accordion and associated navgiation work in tandem is to hide the accordions buttons with the screen widens and hide the navigation entirely when the screen narrows. By only hiding the accordions bottons, its child articles remain visible and this gives the desired effect.
+The way to make the accordion and associated navigation work in tandem responsively is to hide the accordion's buttons as the screen widens and hide the navigation entirely as the screen narrows. By only hiding the accordion's bottons, its child articles remain visible and this gives the desired effect.
 
 Here is some example styling for the view:
 
@@ -166,7 +166,7 @@ export default withStyle(View)`
 `;
 ```
 
-Note the use of the grid template areas. These are not present on the accordion and associated navigation elements by default and must be added with custom styles. Here is an example of styling the associated navigation:
+Note the use of the grid template areas. These are not present on the accordion and associated navigation by default and must be added with custom styles. Here is an example of styling the associated navigation:
 
 ```
 import { AccordionNavigation } from "easy-accordion";
@@ -187,7 +187,7 @@ export default withStyle(AccordionNavigation)`
 ```
 Note that as well as the `grid-arae` property the navigation's visibility is toggled as the screen width changes.
 
-Before looking at the accordion, note that you may also way to override the default `AccordionArticle` class in order to set the appropriate widespace around the articles:
+Before looking at the accordion, note that you may also wish to override the default `AccordionArticle` class in order to set the appropriate whitespace around the articles:
 
 ```
 import { AccordionArticle } from "easy-accordion";
@@ -254,9 +254,9 @@ export default withStyle(class extends Accordion {
 
 `;
 ```
-Note that in this instance it has also been given a border.
+Note that in this instance it has also been given a responsive border.
 
-It has already been mentioned but it is worth repeating that only the accordion's button need to be hidden as the screen widens whilst its child articles remain in use, so to speak. In this way responsiveness is acheived without the need to duplicate content.
+It has already been mentioned but it is worth repeating that only the accordion's buttons need to be hidden as the screen widens whilst its child articles remain in use, so to speak. In this way responsiveness is acheived without the need to duplicate content.
 
 ## Building
 
