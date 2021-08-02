@@ -86,7 +86,11 @@ class View extends Element {
 }
 ```
 
-You must pass a `showArticles()` method to both the accordion and associated navigation as well as an array of arrays of articles. Note that local instances of both have been used in order that custom styles can be applied. This is explained in greater detail in the section on styles that comes next. An example array of arrays of articles is shown below:
+You must pass a `showArticles()` method to both the accordion and associated navigation as well as an array of arrays of articles. Note that local instances of both have been used in order that custom styles can be applied. This is explained in greater detail in the section on styles that comes next.
+
+Calling the `assignContext()` method in the `initialise()` method makes the `updateAccordion()` and `updateAccordionNavigation()` methods available to the view and it is these methods that are called from the `showArticle()` method. Note that the `updateAccordion()` method takes optional `instantly` and `callback` arguments. If set to `true` the former forces the acoordion to show the article in question instantly, that is, with no animations. The `callback` argument allows a callback function to be provided that is invoked when the animation completes. If the `instantly` argument has been set to true, this callback is called immediately.  
+
+An example array of arrays of articles is shown below:
 
 ```
 const ArticlesArray = [ ///
@@ -100,6 +104,41 @@ export default ArticlesArray;
 ```
 
 In fact not all the elements of the outermost array need to be arrays, single articles are coerced into arrays automatically. For genuine arrays the first element is taken as the main article in that it's title is shown in the accordion and associated navigation buttons. There is no second level navigation to enable the other articles to be shown. However, if they are shown by means of links or whatever, both the accordion and associated navigation will respond by enabling the button corresponding to the first article in the array, thus allowing the user to navigate back to it. 
+
+the articles provided must extend the `AccordionArticle` class and provide `title`, `uri` and` path` static properties. For example:
+
+```
+import AccordionArticle from "../../article/accordion";
+
+import { buttonsURI } from "../../uris";
+import { buttonsPath } from "../../paths";
+
+export default class ButtonsAccordionArticle extends AccordionArticle {
+  childElements() {
+    return (
+
+      <div>
+        <h1>
+          Buttons
+        </h1>
+      </div>
+
+    );
+  }
+
+  static uri = buttonsURI;
+
+  static path = buttonsPath;
+
+  static title = "Buttons";
+
+  static defaultProperties = {
+    className: "buttons"
+  };
+}
+```
+
+Paths are used to match URIs and should be regular expressions. This means that URIs that include, say, dynamic identifiers, can be matched.
 
 ## Building
 
