@@ -2,7 +2,7 @@
 
 A responsive accordion and associated navigation.
 
-Coming soon!
+There is an accordion element, which can take an array of arrays of articles, together with a navigation element. The two can be used in tandem or independently. They are responsive in the sense that they can be easily styled to work together responsively. They can also be made to respond to changes in the browser's address. More details are given in the usage section.   
 
 ### JSX support
 
@@ -50,7 +50,43 @@ One last thing to bear in mind is that this package is included by way of a rela
 
 ## Usage
 
-Coming in a bit.
+A view class that utilises both the accordion and associated navigation is shown below:
+
+```
+import Accordion from "./accordion";
+import ArticlesArray from "./articlesArray";
+import AccordionNavigation from "./navigation/accordion";
+
+class View extends Element {
+  showArticle(uri, instantly, callback) {
+    this.updateAccordion(uri, instantly, callback);
+    this.updateAccordionNavigation(uri);
+  }
+
+  childElements() {
+    const showArticle = this.showArticle.bind(this);
+    
+    return ([
+
+      <Accordion ArticlesArray={ArticlesArray} showArticle={showArticle} />,
+      <AccordionNavigation ArticlesArray={ArticlesArray} showArticle={showArticle} />
+
+    ]);
+  }
+
+  initialise() {
+    this.assignContext();
+  }
+
+  static tagName = "div";
+
+  static defaultProperties = {
+    className: "view"
+  };
+}
+```
+
+Note that local instances of both are used so that custom styles can be applied. This is explained in greater detail in the section on styles that comes next.
 
 ## Building
 

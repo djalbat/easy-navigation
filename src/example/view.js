@@ -17,6 +17,8 @@ class View extends Element {
   }
 
   childElements() {
+    const showArticle = this.showArticle.bind(this);
+
     return ([
 
       <Accordion ArticlesArray={ArticlesArray} showArticle={showArticle} />,
@@ -24,9 +26,9 @@ class View extends Element {
 
     ]);
 
-    function showArticle(uri, instantly) {
-      controller.showArticle(uri, instantly);
-    }
+    // function showArticle(uri, instantly) {
+    //   controller.showArticle(uri, instantly);
+    // }
   }
 
   initialise() {
