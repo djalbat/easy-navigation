@@ -11,5 +11,5 @@ export default withStyle(AccordionButton)`
     display: none;
 
   }
-
+  
 `;
