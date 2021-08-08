@@ -59,7 +59,11 @@ class AccordionDiv extends Element {
 
   resize(initialHeight, finalHeight, instantly, callback) {
     if (instantly) {
-      callback && callback();
+      if (callback) {
+        const accordionDiv = this;  ///
+
+        callback(accordionDiv);
+      }
 
       return;
     }
@@ -69,7 +73,11 @@ class AccordionDiv extends Element {
     this.animate(initialTime, initialHeight, finalHeight, () => {
       this.setHeight("auto");
 
-      callback && callback();
+      if (callback) {
+        const accordionDiv = this;  ///
+
+        callback(accordionDiv);
+      }
     });
   }
 
