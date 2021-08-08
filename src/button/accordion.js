@@ -74,7 +74,6 @@ export default withStyle(AccordionButton)`
     cursor: auto;
     background: none;
     font-weight: bold;
-    border-bottom: none;
   }
 
 `;
