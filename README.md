@@ -1,4 +1,4 @@
-# Easy Accordion
+# Easy Navigation
 
 A responsive accordion and associated navigation.
 
@@ -20,11 +20,11 @@ There is now support for JSX in the form of [Juxtapose](https://github.com/djalb
 
 You can install Easy Layout with [npm](https://www.npmjs.com/):
 
-    npm install easy-accordion
+    npm install easy-navigation
 
 You can also clone the repository with [Git](https://git-scm.com/)...
 
-    git clone https://github.com/djalbat/easy-accordion.git
+    git clone https://github.com/djalbat/easy-navigation.git
 
 ...and then install the dependencies with npm from within the project's root directory:
 
@@ -169,7 +169,7 @@ export default withStyle(View)`
 Note the use of the grid template areas. These are not present on the accordion and associated navigation by default and must be added with custom styles. Here is an example of styling the associated navigation:
 
 ```
-import { AccordionNavigation } from "easy-accordion";
+import { AccordionNavigation } from "easy-navigation";
 
 export default withStyle(AccordionNavigation)`
 
@@ -190,7 +190,7 @@ Note that as well as the `grid-arae` property the navigation's visibility is tog
 Before looking at the accordion, note that you may also wish to override the default `AccordionArticle` class in order to set the appropriate whitespace around the articles:
 
 ```
-import { AccordionArticle } from "easy-accordion";
+import { AccordionArticle } from "easy-navigation";
 
 export default withStyle(AccordionArticle)`
 
@@ -234,7 +234,7 @@ export default withStyle(AccordionButton)`
 The accordion must be appraised of this new button and this is done in two stages. First, the `AccordionItem` class must be overridden in the following manner...
 
 ```
-import { AccordionItem } from "easy-accordion";
+import { AccordionItem } from "easy-navigation";
 
 import AccordionButton from "../button/accordion";
 
@@ -245,7 +245,7 @@ export default class extends AccordionItem {
 ...and then the accordion must be appraised of this new item:
 
 ```
-import { Accordion } from "easy-accordion";
+import { Accordion } from "easy-navigation";
 
 import AccordionItem from "./item/accordion";
 
