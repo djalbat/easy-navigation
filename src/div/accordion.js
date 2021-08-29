@@ -130,8 +130,6 @@ class AccordionDiv extends Element {
 
 export default withStyle(AccordionDiv)`
 
-  overflow: hidden;
-
   display: block;
   
   .collapsed {
