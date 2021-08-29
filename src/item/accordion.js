@@ -59,7 +59,7 @@ export default class AccordionItem extends Element {
     return articlePresent;
   }
 
-  update(uri, instantly, callback) {
+  update(uri, instantly) {
     const buttonDisplayed = this.isButtonDisplayed();
 
     if (!buttonDisplayed) {
@@ -92,7 +92,7 @@ export default class AccordionItem extends Element {
 
     this.disable(uri);
 
-    this.expand(initialHeight, instantly, callback);
+    this.expand(initialHeight, instantly);
   }
 
   enable() {
@@ -108,8 +108,8 @@ export default class AccordionItem extends Element {
         this.enableButton();
   }
 
-  expand(initialHeight, instantly, callback) {
-    this.expandDiv(initialHeight, instantly, callback);
+  expand(initialHeight, instantly) {
+    this.expandDiv(initialHeight, instantly);
   }
 
   collapse(instantly) {

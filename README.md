@@ -58,8 +58,8 @@ import ArticlesArray from "./articlesArray";
 import AccordionNavigation from "./navigation/accordion";
 
 class View extends Element {
-  showArticle(uri, instantly, callback) {
-    this.updateAccordion(uri, instantly, callback);
+  showArticle(uri, instantly) {
+    this.updateAccordion(uri, instantly);
     this.updateAccordionNavigation(uri);
   }
 

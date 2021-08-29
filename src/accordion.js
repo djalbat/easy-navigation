@@ -22,10 +22,10 @@ class Accordion extends Element {
     return AccordionItem;
   }
 
-  update(uri, instantly, callback) {
+  update(uri, instantly) {
     const items = this.getItems();
 
-    items.forEach((item) => item.update(uri, instantly, callback));
+    items.forEach((item) => item.update(uri, instantly));
   }
 
   didMount() {
@@ -52,7 +52,7 @@ class Accordion extends Element {
 
           return (
 
-              <AccordionItem Articles={Articles} first={first} last={last} showArticle={showArticle} />
+            <AccordionItem Articles={Articles} first={first} last={last} showArticle={showArticle} />
 
           );
         });

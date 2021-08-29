@@ -7,26 +7,25 @@ import { Element } from "easy";
 import { ACCORDION_SCALE_FACTOR } from "../constants";
 
 class AccordionDiv extends Element {
-  expand(initialHeight, instantly, callback) {
+  expand(initialHeight, instantly) {
     const height = this.getHeight(),
           finalHeight = height; ///
 
     this.removeClass("collapsed");
 
-    this.resize(initialHeight, finalHeight, instantly, callback);
+    this.resize(initialHeight, finalHeight, instantly);
   }
 
   collapse(instantly, done) {
     const height = this.getHeight(),
           finalHeight = 0,
-          initialHeight = height, ///
-          callback = () => {  ///
-            this.addClass("collapsed");
+          initialHeight = height; ///
 
-            done();
-          };
+    this.resize(initialHeight, finalHeight, instantly, () => {
+      this.addClass("collapsed");
 
-    this.resize(initialHeight, finalHeight, instantly, callback);
+      done();
+    });
   }
 
   getHeight() {
@@ -57,13 +56,9 @@ class AccordionDiv extends Element {
     this.style("height", height);
   }
 
-  resize(initialHeight, finalHeight, instantly, callback) {
+  resize(initialHeight, finalHeight, instantly, done) {
     if (instantly) {
-      if (callback) {
-        const accordionDiv = this;  ///
-
-        callback(accordionDiv);
-      }
+      done && done(); ///
 
       return;
     }
@@ -73,11 +68,7 @@ class AccordionDiv extends Element {
     this.animate(initialTime, initialHeight, finalHeight, () => {
       this.setHeight("auto");
 
-      if (callback) {
-        const accordionDiv = this;  ///
-
-        callback(accordionDiv);
-      }
+      done && done(); ///
     });
   }
 
@@ -129,6 +120,8 @@ class AccordionDiv extends Element {
 }
 
 export default withStyle(AccordionDiv)`
+
+  overflow: hidden;
 
   display: block;
   
