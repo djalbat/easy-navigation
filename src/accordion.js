@@ -46,16 +46,16 @@ class Accordion extends Element {
           lastIndex = ArticlesArrayLength - 1,
           firstIndex = 0,
           items = ArticlesArray.map((ArticleOrArticles, index) => {
-            const last = (index === lastIndex),
-                  first = (index === firstIndex),
-                  Articles = guaranteeArray(ArticleOrArticles); ///
+              const last = (index === lastIndex),
+                    first = (index === firstIndex),
+                    Articles = guaranteeArray(ArticleOrArticles); ///
 
-          return (
+            return (
 
-            <AccordionItem Articles={Articles} first={first} last={last} showArticle={showArticle} />
+              <AccordionItem Articles={Articles} first={first} last={last} showArticle={showArticle} />
 
-          );
-        });
+            );
+          });
 
     return ([
 
