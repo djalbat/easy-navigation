@@ -7,7 +7,8 @@ import AccordionButton from "../button/accordion";
 
 export default class AccordionItem extends Element {
   getArticles() {
-    const descendantArticleElements = this.getDescendantElements("article", 2),
+    const maximumDepth = 2,
+          descendantArticleElements = this.getDescendantElements("article", maximumDepth),
           articles = descendantArticleElements; ///
 
     return articles;

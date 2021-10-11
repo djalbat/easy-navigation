@@ -16,7 +16,8 @@ class AccordionNavigationList extends Element {
   }
 
   getButtons() {
-    const buttonDescendantElements = this.getDescendantElements("button", 2),
+    const maximumDepth = 2,
+          buttonDescendantElements = this.getDescendantElements("button", maximumDepth),
           buttons = buttonDescendantElements;  ///
 
     return buttons;
