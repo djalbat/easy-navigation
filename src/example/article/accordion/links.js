@@ -1,7 +1,5 @@
 "use strict";
 
-import withStyle from "easy-with-style";
-
 import AccordionArticle from "../../article/accordion";
 
 import { linksURI } from "../../uris";

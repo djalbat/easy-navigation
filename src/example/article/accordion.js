@@ -1,6 +1,6 @@
 "use strict";
 
-import withStyle from "easy-with-style";
+import withStyle from "easy-with-style";  ///
 
 import { AccordionArticle } from "../../index";
 
