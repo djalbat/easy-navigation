@@ -50,7 +50,7 @@ class AccordionNavigationButton extends Button {
   ];
 
   static defaultProperties = {
-    className: "accordion navigation"
+    className: "accordion-navigation"
   };
 }
 

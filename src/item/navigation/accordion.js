@@ -30,7 +30,7 @@ class AccordionNavigationItem extends Element {
   static tagName = "li";
 
   static defaultProperties = {
-    className: "accordion navigation"
+    className: "accordion-navigation"
   };
 }
 

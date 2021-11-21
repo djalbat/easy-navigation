@@ -74,7 +74,7 @@ class AccordionNavigationList extends Element {
   static tagName = "ul";
 
   static defaultProperties = {
-    className: "accordion navigation"
+    className: "accordion-navigation"
   };
 }
 
