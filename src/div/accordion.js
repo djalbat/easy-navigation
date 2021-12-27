@@ -4,7 +4,7 @@ import withStyle from "easy-with-style";  ///
 
 import { Element } from "easy";
 
-import { ACCORDION_SCALE_FACTOR } from "../constants";
+import { AUTO, ACCORDION_SCALE_FACTOR } from "../constants";
 
 class AccordionDiv extends Element {
   expand(initialHeight, instantly) {
@@ -49,7 +49,7 @@ class AccordionDiv extends Element {
   }
 
   setHeight(height) {
-    height = (height === "auto") ?
+    height = (height === AUTO) ?
       height :
       `${height}px`; ///
 
@@ -66,7 +66,7 @@ class AccordionDiv extends Element {
     const initialTime = Date.now();
 
     this.animate(initialTime, initialHeight, finalHeight, () => {
-      this.setHeight("auto");
+      this.setHeight(AUTO);
 
       done && done(); ///
     });
