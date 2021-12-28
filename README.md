@@ -94,10 +94,10 @@ An example array of arrays of articles is shown below:
 
 ```
 const ArticlesArray = [ ///
-  [ HomeAccordionArticle, LinksAccordionArticle, ButtonsAccordionArticle, HeadingsAccordionArticle ],
-  CodesAccordionArticle,
-  InputsAccordionArticle,
-  SectionsAccordionArticle
+  [ HomeArticle, LinksArticle, ButtonsArticle, HeadingsArticle ],
+  CodesArticle,
+  InputsArticle,
+  SectionsArticle
 ];
 
 export default ArticlesArray;
@@ -105,15 +105,15 @@ export default ArticlesArray;
 
 In fact not all the elements of the outermost array need to be arrays, single articles are coerced into arrays automatically. For genuine arrays the first element is taken as the main article in that it's title is shown in the accordion and associated navigation buttons. There is no second level navigation to enable the other articles to be shown. However, if they are shown by means of links or whatever, both the accordion and associated navigation will respond by enabling the button corresponding to the first article in the array, thus allowing the user to navigate back to it. 
 
-The articles provided must extend the `AccordionArticle` class and provide `title`, `uri` and` path` static properties. For example:
+The articles provided must have `title`, `uri` and` path` static properties. For example:
 
 ```
-import AccordionArticle from "../../article/accordion";
+import Article from /../article";
 
-import { buttonsURI } from "../../uris";
-import { buttonsPath } from "../../paths";
+import { buttonsURI } from "../uris";
+import { buttonsPath } from "../paths";
 
-export default class ButtonsAccordionArticle extends AccordionArticle {
+export default class ButtonsArticle extends Article {
   childElements() {
     return (
 
@@ -137,6 +137,8 @@ export default class ButtonsAccordionArticle extends AccordionArticle {
   };
 }
 ```
+Note that a predefined `Article` class has been extended here, see the styles section below.
+
 Paths are used to match URIs and should be regular expressions. This means that URIs that include, say, dynamic identifiers, can be matched.
 
 ## Styles
@@ -187,12 +189,16 @@ export default withStyle(AccordionNavigation)`
 ```
 Note that as well as the `grid-arae` property the navigation's visibility is toggled as the screen width changes.
 
-Before looking at the accordion, note that you may also wish to override the default `AccordionArticle` class in order to set the appropriate whitespace around the articles:
+Before looking at the accordion, note that you may also wish to create an `Article` class in order to set the appropriate whitespace around the articles:
 
 ```
-import { AccordionArticle } from "easy-navigation";
+import { Element } from "easy";
 
-export default withStyle(AccordionArticle)`
+class Article extends Element {
+  static tagName = "article";
+}
+
+export default withStyle(Article)`
 
   padding: 2rem;
   

@@ -7,7 +7,7 @@ import { Button } from "easy";
 class AccordionNavigationButton extends Button {
   clickHandler(event, element) {
     const { showArticle, Article } = this.properties,
-          uri = Article.getURI(),
+          { uri } = Article,
           instantly = true;
 
     showArticle(uri, instantly);
@@ -15,7 +15,8 @@ class AccordionNavigationButton extends Button {
 
   isURIArticleURI(uri) {
     const { Article } = this.properties,
-          uriArticleURI = Article.isURIArticleURI(uri);
+          { path } = Article,
+          uriArticleURI = path.test(uri);
 
     return uriArticleURI;
   }

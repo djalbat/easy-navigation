@@ -7,7 +7,7 @@ import { Button } from "easy";
 class AccordionButton extends Button {
   clickHandler(event, element) {
     const { showArticle, Article } = this.properties,
-          uri = Article.getURI();
+          { uri } = Article;
 
     showArticle(uri);
   }

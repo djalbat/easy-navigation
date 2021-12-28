@@ -29,7 +29,8 @@ export default class AccordionItem extends Element {
   getArticleIndex(uri) {
     const { Articles } = this.properties,
           articleIndex = Articles.findIndex((Article) => {
-            const uriArticleURI = Article.isURIArticleURI(uri);
+            const { path } = Article,
+                  uriArticleURI = path.test(uri);
 
             if (uriArticleURI) {
               return true;
@@ -83,8 +84,9 @@ export default class AccordionItem extends Element {
           initialHeight = this.getInitialHeight(collapsed);
 
     Articles.forEach((Article, index) => {
-      const article = articles[index],
-            uriArticleURI = Article.isURIArticleURI(uri);
+      const { path } = Article,
+            article = articles[index],
+            uriArticleURI = path.test(uri);
 
       uriArticleURI ?
         article.show() :

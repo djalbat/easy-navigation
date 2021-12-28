@@ -1,13 +1,13 @@
 "use strict";
 
-import AccordionArticle from "../../article/accordion";
+import Article from "../article";
 
-import LinkButton from "../../button/link";
+import LinkButton from "../button/link";
 
-import { homePath } from "../../paths";
-import { homeURI, linksURI, buttonsURI, headingsURI } from "../../uris";
+import { homePath } from "../paths";
+import { homeURI, linksURI, buttonsURI, headingsURI } from "../uris";
 
-export default class HomeAccordionArticle extends AccordionArticle {
+export default class HomeArticle extends Article {
   childElements() {
     return (
 

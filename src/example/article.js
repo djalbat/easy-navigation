@@ -2,9 +2,13 @@
 
 import withStyle from "easy-with-style";  ///
 
-import { AccordionArticle } from "../../index";
+import { Element } from "easy";
 
-export default withStyle(AccordionArticle)`
+class Article extends Element {
+  static tagName = "article";
+}
+
+export default withStyle(Article)`
 
   padding: 2rem;
   

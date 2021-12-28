@@ -1,11 +1,11 @@
 "use strict";
 
-import AccordionArticle from "../../article/accordion";
+import Article from "../article";
 
-import { inputsURI } from "../../uris";
-import { inputsPath } from "../../paths";
+import { inputsURI } from "../uris";
+import { inputsPath } from "../paths";
 
-export default class InputsAccordionArticle extends AccordionArticle {
+export default class InputsArticle extends Article {
   childElements() {
     return (
 

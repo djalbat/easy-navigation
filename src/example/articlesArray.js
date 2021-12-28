@@ -1,18 +1,18 @@
 "use strict";
 
-import HomeAccordionArticle from "./article/accordion/home"
-import LinksAccordionArticle from "./article/accordion/links"
-import CodesAccordionArticle from "./article/accordion/codes"
-import InputsAccordionArticle from "./article/accordion/inputs"
-import ButtonsAccordionArticle from "./article/accordion/buttons";
-import SectionsAccordionArticle from "./article/accordion/sections"
-import HeadingsAccordionArticle from "./article/accordion/headings";
+import HomeArticle from "./article/home"
+import LinksArticle from "./article/links"
+import CodesArticle from "./article/codes"
+import InputsArticle from "./article/inputs"
+import ButtonsArticle from "./article/buttons";
+import SectionsArticle from "./article/sections"
+import HeadingsArticle from "./article/headings";
 
 const ArticlesArray = [ ///
-  [ HomeAccordionArticle, LinksAccordionArticle, ButtonsAccordionArticle, HeadingsAccordionArticle ],
-  CodesAccordionArticle,
-  InputsAccordionArticle,
-  SectionsAccordionArticle
+  [ HomeArticle, LinksArticle, ButtonsArticle, HeadingsArticle ],
+  CodesArticle,
+  InputsArticle,
+  SectionsArticle
 ];
 
 export default ArticlesArray;
