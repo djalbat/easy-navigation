@@ -108,7 +108,7 @@ In fact not all the elements of the outermost array need to be arrays, single ar
 The articles provided must have `title`, `uri` and` path` static properties. For example:
 
 ```
-import Article from /../article";
+import Article from"/../article";
 
 import { buttonsURI } from "../uris";
 import { buttonsPath } from "../paths";
