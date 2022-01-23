@@ -22,7 +22,7 @@ class View extends Element {
     return ([
 
       <Accordion ArticlesArray={ArticlesArray} showArticle={showArticle} />,
-      <AccordionNavigation ArticlesArray={ArticlesArray} showArticle={showArticle} />
+      // <AccordionNavigation ArticlesArray={ArticlesArray} showArticle={showArticle} />
 
     ]);
 
