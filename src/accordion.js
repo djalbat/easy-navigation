@@ -23,9 +23,18 @@ class Accordion extends Element {
   }
 
   update(uri, instantly) {
-    const items = this.getItems();
+    const items = this.getItems(),
+          article = items.reduce((article, item) => {
+            const itemArticle = item.update(uri, instantly);
 
-    items.forEach((item) => item.update(uri, instantly));
+            if (itemArticle !== null) {
+              article = itemArticle;  ///
+            }
+
+            return article;
+          }, null);
+
+    return article;
   }
 
   didMount() {

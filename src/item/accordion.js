@@ -62,6 +62,8 @@ export default class AccordionItem extends Element {
   }
 
   update(uri, instantly) {
+    let article = null;
+
     const buttonDisplayed = this.isButtonDisplayed();
 
     if (!buttonDisplayed) {
@@ -75,27 +77,25 @@ export default class AccordionItem extends Element {
       if (!collapsed) {
         this.collapse(instantly);
       }
+    } else {
+      const articles = this.getArticles(),
+            articleIndex = this.getArticleIndex(uri),
+            initialHeight = this.getInitialHeight(collapsed);
 
-      return;
+      articles.forEach((article, index) => {
+        (index === articleIndex) ?
+          article.show() :
+            article.hide();
+      });
+
+      this.disable(uri);
+
+      this.expand(initialHeight, instantly);
+
+      article = articles[articleIndex];
     }
 
-    const { Articles } = this.properties,
-          articles = this.getArticles(),
-          initialHeight = this.getInitialHeight(collapsed);
-
-    Articles.forEach((Article, index) => {
-      const { path } = Article,
-            article = articles[index],
-            uriArticleURI = path.test(uri);
-
-      uriArticleURI ?
-        article.show() :
-          article.hide();
-    });
-
-    this.disable(uri);
-
-    this.expand(initialHeight, instantly);
+    return article;
   }
 
   enable() {
