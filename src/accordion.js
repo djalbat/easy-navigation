@@ -16,12 +16,6 @@ class Accordion extends Element {
     return items;
   }
 
-  getAccordionItem() {
-    const { AccordionItem } = this.constructor;
-
-    return AccordionItem;
-  }
-
   update(uri, instantly) {
     const items = this.getItems(),
           article = items.reduce((article, item) => {
@@ -49,8 +43,8 @@ class Accordion extends Element {
   }
 
   childElements() {
-    const { ArticlesArray, showArticle } = this.properties,
-          AccordionItem = this.getAccordionItem(),
+    const { AccordionItem } = this.constructor,
+          { ArticlesArray, showArticle } = this.properties,
           ArticlesArrayLength = ArticlesArray.length,
           lastIndex = ArticlesArrayLength - 1,
           firstIndex = 0,

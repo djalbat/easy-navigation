@@ -5,15 +5,9 @@ import { Element } from "easy";
 import AccordionNavigationList from "../list/navigation/accordion";
 
 export default class AccordionNavigation extends Element {
-  getAccordionNavigationList() {
-    const { AccordionNavigationList } = this.constructor;
-
-    return AccordionNavigationList;
-  }
-
   childElements() {
-    const { ArticlesArray, showArticle } = this.properties,
-          AccordionNavigationList = this.getAccordionNavigationList();
+    const { AccordionNavigationList } = this.constructor,
+          { ArticlesArray, showArticle } = this.properties;
 
     return (
 

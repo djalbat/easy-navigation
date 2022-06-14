@@ -38,10 +38,12 @@ class AccordionButton extends Button {
   }
 
   parentContext() {
-    const enableButton = this.enable.bind(this),  ///
+    const blurButton = this.blur.bind(this),  ///
+          enableButton = this.enable.bind(this),  ///
           disableButton = this.disable.bind(this),  ///
           isButtonDisplayed = this.isDisplayed.bind(this),  ///
           parentContext = {
+            blurButton,
             enableButton,
             disableButton,
             isButtonDisplayed

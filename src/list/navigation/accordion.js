@@ -9,12 +9,6 @@ import AccordionNavigationItem from "../../item/navigation/accordion";
 import { guaranteeArray } from "../../utilities/array";
 
 class AccordionNavigationList extends Element {
-  getAccordionNavigationItem() {
-    const { AccordionNavigationItem } = this.constructor;
-
-    return AccordionNavigationItem;
-  }
-
   getButtons() {
     const maximumDepth = 2,
           buttonDescendantElements = this.getDescendantElements("button", maximumDepth),
@@ -29,16 +23,19 @@ class AccordionNavigationList extends Element {
     buttons.forEach((button) => {
       const uriArticleURI = button.isURIArticleURI(uri);
 
-      (uriArticleURI) ?
-        button.disable() :
-          button.enable();
+      if (uriArticleURI) {
+        button.disable();
+        button.blur();
+      } else {
+        button.enable();
+      }
     });
   }
 
   childElements() {
-    const { ArticlesArray, showArticle } = this.properties,
+    const { AccordionNavigationItem } = this.constructor,
+          { ArticlesArray, showArticle } = this.properties,
           ArticlesArrayLength = ArticlesArray.length,
-          AccordionNavigationItem = this.getAccordionNavigationItem(),
           firstIndex = 0,
           lastIndex = ArticlesArrayLength - 1,
           items = ArticlesArray.map((ArticleOrArticles, index) => {

@@ -14,18 +14,6 @@ export default class AccordionItem extends Element {
     return articles;
   }
 
-  getAccordionDiv() {
-    const { AccordionDiv } = this.constructor;
-
-    return AccordionDiv;
-  }
-
-  getAccordionButton() {
-    const { AccordionButton } = this.constructor;
-
-    return AccordionButton;
-  }
-
   getArticleIndex(uri) {
     const { Articles } = this.properties,
           articleIndex = Articles.findIndex((Article) => {
@@ -106,9 +94,12 @@ export default class AccordionItem extends Element {
     const articleIndex = this.getArticleIndex(uri),
           articleFirstArticle = (articleIndex === 0);
 
-    articleFirstArticle ?
-      this.disableButton():
-        this.enableButton();
+    if (articleFirstArticle) {
+      this.disableButton();
+      this.blurButton();
+    } else {
+      this.enableButton();
+    }
   }
 
   expand(initialHeight, instantly) {
@@ -120,10 +111,9 @@ export default class AccordionItem extends Element {
   }
 
   childElements() {
-    const { Articles, first, last, showArticle } = this.properties,
+    const { AccordionDiv, AccordionButton } = this.constructor,
+          { Articles, first, last, showArticle } = this.properties,
           [ Article ] = Articles,
-          AccordionDiv = this.getAccordionDiv(),
-          AccordionButton = this.getAccordionButton(),
           articles = Articles.map((Article, index) =>
 
             <Article index={index} />
@@ -147,6 +137,7 @@ export default class AccordionItem extends Element {
       "expandDiv",
       "isCollapsed",
       "collapseDiv",
+      "blurButton",
       "enableButton",
       "disableButton",
       "activateButton",
