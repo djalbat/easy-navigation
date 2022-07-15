@@ -5,7 +5,7 @@ import withStyle from "easy-with-style";  ///
 import { Button } from "easy";
 
 class AccordionButton extends Button {
-  clickHandler(event, element) {
+  clickHandler = (event, element) => {
     const { showArticle, Article } = this.properties,
           { uri } = Article;
 
