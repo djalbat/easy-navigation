@@ -49,32 +49,29 @@ class Accordion extends Element {
           lastIndex = ArticlesArrayLength - 1,
           firstIndex = 0,
           items = ArticlesArray.map((ArticleOrArticles, index) => {
-              const last = (index === lastIndex),
-                    first = (index === firstIndex),
-                    Articles = guaranteeArray(ArticleOrArticles); ///
+            const last = (index === lastIndex),
+                  first = (index === firstIndex),
+                  Articles = guaranteeArray(ArticleOrArticles); ///
 
             return (
 
               <AccordionItem Articles={Articles} first={first} last={last} showArticle={showArticle} />
 
             );
-          });
+          }),
+          childElements = items;  ///
 
-    return ([
-
-      ...items
-
-    ]);
+    return childElements;
   }
 
   parentContext() {
     const context = this.getContext(),
-          updateAccordion = this.update.bind(this), ///
-          parentContext = Object.assign({}, context, {
-            updateAccordion
-          });
+          updateAccordion = this.update.bind(this); ///
 
-    return parentContext;
+    return ({
+      ...context,
+      updateAccordion
+    });
   }
 
   static AccordionItem = AccordionItem;

@@ -99,17 +99,17 @@ class AccordionDiv extends Element {
           resizeDiv = this.resize.bind(this), ///
           expandDiv = this.expand.bind(this), ///
           collapseDiv = this.collapse.bind(this), ///
-          isCollapsed = this.isCollapsed.bind(this),
-          getDivHeight = this.getHeight.bind(this),
-          parentContext = Object.assign({}, context, {
-            resizeDiv,
-            expandDiv,
-            collapseDiv,
-            isCollapsed,
-            getDivHeight
-          });
+          getDivHeight = this.getHeight.bind(this), ///
+          isCollapsed = this.isCollapsed.bind(this);
 
-    return parentContext;
+    return ({
+      ...context,
+      resizeDiv,
+      expandDiv,
+      collapseDiv,
+      getDivHeight,
+      isCollapsed
+    });
   }
 
   static tagName = "div";

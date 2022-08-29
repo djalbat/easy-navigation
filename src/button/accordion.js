@@ -41,15 +41,14 @@ class AccordionButton extends Button {
     const blurButton = this.blur.bind(this),  ///
           enableButton = this.enable.bind(this),  ///
           disableButton = this.disable.bind(this),  ///
-          isButtonDisplayed = this.isDisplayed.bind(this),  ///
-          parentContext = {
-            blurButton,
-            enableButton,
-            disableButton,
-            isButtonDisplayed
-          };
+          isButtonDisplayed = this.isDisplayed.bind(this);  ///
 
-    return parentContext;
+    return ({
+      blurButton,
+      enableButton,
+      disableButton,
+      isButtonDisplayed
+    });
   }
 
   static ignoredProperties = [

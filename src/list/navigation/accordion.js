@@ -48,22 +48,18 @@ class AccordionNavigationList extends Element {
               <AccordionNavigationItem Articles={Articles} first={first} last={last} showArticle={showArticle} />
 
             );
-          });
+          }),
+          childElements = items;  ///
 
-    return ([
-
-      ...items
-
-    ]);
+    return childElements;
   }
 
   parentContext() {
-    const updateAccordionNavigation = this.update.bind(this),  ///
-          parentContext = {
-            updateAccordionNavigation
-          };
+    const updateAccordionNavigation = this.update.bind(this);  ///
 
-    return parentContext;
+    return ({
+      updateAccordionNavigation
+    });
   }
 
   static AccordionNavigationItem = AccordionNavigationItem;
