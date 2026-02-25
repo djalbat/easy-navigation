@@ -1,7 +1,7 @@
 {
   "name": "easy-navigation",
   "author": "James Smith",
-  "version": "2.1.280",
+  "version": "2.1.281",
   "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/easy-navigation",
   "description": "A responsive accordion and associated navigation.",
@@ -18,7 +18,7 @@
     "esbuild": "0.11.14",
     "express": "^4.17.1",
     "lively-cli": "^2.0.77",
-    "sufficient": "^2.0.86",
+    "sufficient": "^2.0.87",
     "watchful-cli": "^1.7.67"
   },
   "scripts": {
